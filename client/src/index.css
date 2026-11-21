@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply antialiased;
+  }
+  body {
+    @apply bg-surface-mute text-ink font-sans;
+  }
+  /* Scrollbars */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-line rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-accent-soft;
+  }
+}
+
+@layer components {
+  .input {
+    @apply w-full rounded-xl border border-line bg-white px-3.5 py-2.5 text-sm text-ink placeholder:text-ink-soft/60 outline-none transition-shadow focus:border-accent focus:ring-4 focus:ring-accent/10 disabled:opacity-60;
+  }
+  .label {
+    @apply mb-1.5 block text-xs font-semibold uppercase tracking-wide text-ink-soft;
+  }
+  .card {
+    @apply rounded-2xl border border-line bg-white shadow-soft;
+  }
+  .md-body h1 {
+    @apply mb-3 mt-6 text-xl font-bold text-ink;
+  }
+  .md-body h2 {
+    @apply mb-2.5 mt-6 text-lg font-bold text-ink;
+  }
+  .md-body h3 {
+    @apply mb-2 mt-4 text-sm font-semibold uppercase tracking-wide text-accent;
+  }
+  .md-body p {
+    @apply mb-3 leading-relaxed;
+  }
+  .md-body ul {
+    @apply mb-4 list-disc space-y-1.5 pl-5;
+  }
+  .md-body ol {
+    @apply mb-4 list-decimal space-y-1.5 pl-5;
+  }
+  .md-body blockquote {
+    @apply mb-4 rounded-r-lg border-l-4 border-accent-soft bg-accent-lavender/50 px-4 py-2 text-sm italic;
+  }
+  .md-body code {
+    @apply rounded-md bg-surface-mute px-1.5 py-0.5 font-mono text-[0.85em];
+  }
+  .md-body pre {
+    @apply mb-4 overflow-x-auto rounded-xl bg-ink p-4 text-surface-mute;
+  }
+  .md-body pre code {
+    @apply bg-transparent p-0 text-inherit;
+  }
+  .md-body table {
+    @apply mb-4 w-full border-collapse overflow-hidden rounded-xl text-sm;
+  }
+  .md-body th {
+    @apply border-b border-line bg-surface-mute px-3 py-2 text-left font-semibold;
+  }
+  .md-body td {
+    @apply border-b border-line/70 px-3 py-2 align-top;
+  }
+  .md-body a {
+    @apply text-accent underline underline-offset-2;
+  }
+  .md-body hr {
+    @apply my-5 border-line;
+  }
+}
+
+/* Dark mode adjustments */
+.dark body {
+  @apply bg-ink text-surface-mute;
+}
+.dark .card {
+  @apply border-white/10 bg-ink-soft/20 shadow-none;
+}
+.dark .input {
+  @apply border-white/10 bg-white/5 text-surface-mute placeholder:text-surface-mute/40;
+}
+.dark .label {
+  @apply text-surface-mute/60;
+}

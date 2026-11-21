@@ -1,0 +1,9 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=827846
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "bradlc.vscode-tailwindcss",
+    "mongodb.mongodb-vscode"
+  ]
+}
