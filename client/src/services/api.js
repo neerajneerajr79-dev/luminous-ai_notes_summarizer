@@ -6,7 +6,6 @@ const api = axios.create({
   withCredentials: true,
   headers: { 'Content-Type': 'application/json' },
 });
-
 // Extract the backend message into a friendly Error.
 api.interceptors.response.use(
   (response) => response,
