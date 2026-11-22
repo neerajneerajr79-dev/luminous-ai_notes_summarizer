@@ -5,7 +5,9 @@ const fs = require('fs');
 const env = require('../config/env');
 const { SUPPORTED_FILE_TYPES } = require('../config/constants');
 
-const uploadDir = path.resolve(process.cwd(), env.upload.dir);
+const uploadDir = process.env.VERCEL
+  ? path.join('/tmp', 'uploads')
+  : path.resolve(process.cwd(), env.upload.dir);
 fs.mkdirSync(uploadDir, { recursive: true });
 
 // Files are stored under random names in a private directory - never trusted names.
