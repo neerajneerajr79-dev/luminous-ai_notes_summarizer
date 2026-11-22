@@ -41,10 +41,10 @@ async function startEmbeddedDb() {
   const server = app.listen(env.port, () => {
     console.log(`Lumio AI API running on http://localhost:${env.port} (${env.nodeEnv})`);
     if (!env.ai.apiKey) {
-      console.warn(
-        'WARNING: OPENAI_API_KEY is not set. AI endpoints will return a clear error until it is configured in server/.env'
-      );
-    }
+  console.warn(
+    'WARNING: GEMINI_API_KEY is not set. AI endpoints will not work until configured.'
+  );
+}
   });
 
   const shutdown = () => {
@@ -61,3 +61,4 @@ async function startEmbeddedDb() {
   console.error('Fatal startup error:', err.message);
   process.exit(1);
 });
+USE_EMBEDDED_DB=false
