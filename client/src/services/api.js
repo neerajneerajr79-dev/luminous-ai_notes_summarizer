@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Axios instance with credentials so the HTTP-only auth cookie is sent.
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
+  baseURL: '/api',
   withCredentials: true,
   headers: { 'Content-Type': 'application/json' },
 });
