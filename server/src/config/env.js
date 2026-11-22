@@ -26,11 +26,10 @@ module.exports = {
     maxAge: 7 * 24 * 60 * 60 * 1000,
   },
   ai: {
-    ai: {
   apiKey: process.env.GEMINI_API_KEY || '',
   model: process.env.GEMINI_MODEL || 'gemini-3.6-flash',
 },
-  },
+
   upload: {
     maxFileSize: parseInt(process.env.MAX_FILE_SIZE || String(15 * 1024 * 1024), 10),
     dir: process.env.UPLOAD_DIR || 'uploads',
