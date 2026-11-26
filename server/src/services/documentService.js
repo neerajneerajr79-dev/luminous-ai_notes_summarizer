@@ -19,10 +19,21 @@ function normalize(text) {
 }
 
 async function extractPdf(filePath) {
-  const pdfParse = (await import('pdf-parse')).default;
+  const { PDFParse } = require('pdf-parse');
   const buffer = fs.readFileSync(filePath);
-  const result = await pdfParse(buffer);
-  return { text: normalize(result.text), pages: result.numpages || null };
+
+  const parser = new PDFParse({ data: buffer });
+
+  try {
+    const result = await parser.getText();
+
+    return {
+      text: normalize(result.text),
+      pages: result.total || null,
+    };
+  } finally {
+    await parser.destroy();
+  }
 }
 
 async function extractDocx(filePath) {
